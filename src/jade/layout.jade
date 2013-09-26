@@ -1,0 +1,22 @@
+block vars
+	- var pagename = "metapage";
+	- var pagetitle = "Умолчание";
+- var development = true;
+!!! 5
+html(class='no-js', lang='ru')
+	head
+		meta(charset='UTF-8')
+		title #{pagetitle} - Портфолио
+		meta(name='description', content='')
+		meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1')
+		if development
+			link(rel='stylesheet', href='css/style.css')
+		else
+			link(rel='stylesheet', href='css/style.min.css')
+		link(rel='shortcut icon', type='image/x-icon', href='favicon.ico')
+	body(class="#{pagename}")
+		block header
+			include block/header
+		.content
+			.wrapper
+				block content

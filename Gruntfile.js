@@ -1,5 +1,4 @@
 module.exports = function(grunt) {
-
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -10,22 +9,22 @@ module.exports = function(grunt) {
 				separator: ";\n"
 			},
 			plugins:{
-				src: ["src/js/plugin/*.js"],
-				dest: "js/plugins.js"
+				src: ["dev/js/plugins/*.js"],
+				dest: "app/js/plugins.js"
 			},
 			main:{
-				src: ["src/js/org/define.js", "src/js/part/*.js", "src/js/org/main.js"],
-				dest: "js/main.js"
+				src: ["dev/js/org/defs.js", "dev/js/parts/*.js", "dev/js/org/main.js"],
+				dest: "app/js/main.js"
 			}
 		},
 		jshint:{
-			all:["src/js/org/defs.js", "src/js/part/*.js", "src/js/org/main.js"]
+			all:["dev/js/org/defs.js", "dev/js/parts/*.js", "dev/js/org/main.js"]
 		},
 		// uglify task
 		uglify:{
 			main:{
 				files: {
-					"js/main.min.js": ['js/main.js']
+					"app/js/main.min.js": ['app/js/main.js']
 				}
 			},
 			plugins:{
@@ -33,32 +32,7 @@ module.exports = function(grunt) {
 					preserveComments: 'all'
 				},
 				files: {
-					// plugins from plugin.src folder, example:
-					"src/js/plugin/jquery.formstyler.min.js":"src/js/plugin.src/jquery.formstyler.js",
-				}
-			}
-		},
-		svgmin: {
-			options: {
-				plugins: [{
-					removeViewBox: false
-				}]
-			},
-			dist: {
-				files: {
-					"src/img/svgmin/bg_city.svg":"src/img/svg/bg_city.svg"
-					// list of svg files
-				}
-			}
-		},
-		// grunticon task
-		grunticon: {
-			myIcons: {
-				options: {
-					src: "src/img/svg/",
-					dest: "img/icon/",
-					cssprefix: "icon-",
-					loadersnippet:"insert.html"
+					"dev/js/plugins/jade-runtime.min.js":"dev/js/plugins-to-min/jade-runtime.js",
 				}
 			}
 		},
@@ -69,7 +43,7 @@ module.exports = function(grunt) {
 					yuicompress: true
 				},
 				files: {
-					"css/main.min.css": "src/less/main.less"
+					"css/style.min.css": "src/less/style.less"
 				}
 			},
 			live: {
@@ -77,26 +51,27 @@ module.exports = function(grunt) {
 					yuicompress: false
 				},
 				files: {
-					"css/main.css": "src/less/main.less"
+					"css/style.css": "src/less/style.less"
 				}
 			}
 		},
-		sprite:{
-			clouds:{
-				src: ["src/img/sprites/clouds/*.png"],
-				destImg: "src/img/sprites/clouds.png",
-				destCSS: "json/clouds.json",
-				algorithm: 'binary-tree',
-				padding: 2
-			},
-		},
-		imagemin: {
-			dist: {
+		// jade task
+		jade: {
+			live: {
 				options: {
-					optimizationLevel: 1
+					pretty: true
 				},
 				files: {
-					"img/clouds.png": "src/img/sprites/clouds.png",
+					"index.html": ["src/jade/page/index.jade"],
+				}
+			},
+			build:{
+				options: {
+					pretty: true
+				},
+				files: {
+					/***  pages  ***/
+					"index.html": ["src/jade/page/index.jade"],
 				}
 			}
 		},
@@ -107,21 +82,21 @@ module.exports = function(grunt) {
 			},
 			less:{
 				files: ['src/less/**'],
-				tasks: ['less:live', 'less:build'],
+				tasks: ['less:live' , 'less:build'],
 				options: {
 					livereload: false
 				}
 			},
 			css:{
-				files: ['css/main.css']
+				files: ['css/style.css']
 			},
-			scripts:{
-				files: ['src/js/org/**', 'src/js/part/**', 'src/js/plugin.src/**'],
-				tasks: ['jshint', 'uglify:plugins', 'concat', 'uglify:main']
-			},
-
-			views:{
-				files: ["../../src/Cbw/DefaultBundle/Resources/views/**"]
+			// scripts:{
+			// 	files: ['dev/js/org/**', 'dev/js/parts/**', 'dev/js/plugins-to-min/**'],
+			// 	tasks: ['jshint', 'uglify:plugins', 'concat', 'uglify:main']
+			// },
+			jade:{
+				files: ['src/jade/**'],
+				tasks: ['jade:live']
 			}
 		}
 	});
@@ -131,15 +106,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-grunticon');
+	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-svgmin');
-	grunt.loadNpmTasks('grunt-spritesmith');
-	grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-	// Console tasks
+	// Default task(s).
 	grunt.registerTask('default',['watch']);
 	grunt.registerTask('icons', ['grunticon']);
 	grunt.registerTask('scripts', ['uglify:plugins', 'concat', 'uglify:main']);
-	grunt.registerTask('build',[ 'uglify:plugins','concat', 'uglify:main', 'grunticon', 'less:build']);
+	grunt.registerTask('build',[ 'uglify:plugins','concat', 'uglify:main', 'grunticon', 'less:build','jade:build']);
 };

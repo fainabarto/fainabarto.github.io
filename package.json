@@ -1,6 +1,11 @@
 {
-  "name": "samsung-watch-frontend",
-  "version": "0.1.0",
+  "name": "FainaBarto-portfolio",
+  "version": "0.0.1",
+  "description": "Faina Barto portfolio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fainabarto/fainabarto.github.io"
+  },
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-contrib-copy": ">=0.4.1",
@@ -9,9 +14,8 @@
     "grunt-contrib-uglify": ">=0.2.0",
     "grunt-contrib-watch": ">=0.4.3",
     "grunt-grunticon": ">=0.1",
+    "grunt-contrib-jade": ">=0.7.0",
     "grunt-svgmin": ">=0.2.0",
-    "grunt-contrib-jshint": "~0.6.2",
-    "grunt-spritesmith": "~1.7.0",
-    "grunt-contrib-imagemin": "~0.2.0"
+    "grunt-contrib-jshint": "~0.6.2"
   }
 }
