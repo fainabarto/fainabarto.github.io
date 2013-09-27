@@ -5,10 +5,25 @@ block vars
 block header
 	header
 block content
-	img.home-bg(src="img/draw.png")
+	div.home-bg
+		img.home-bg__img(src="img/draw.png")
 	div.wrapper
 		aside.home-aside
-			.photo
+			.home-aside__img
 				img(src="img/photo.jpg")
+			.home-aside__contacts
+				div Контакты
+				a(href="mailto:faina_barto@mail.ru") faina_bart@mail.ru
+				a(href="skype:fainabarto") fainabarto (skype)
 		section.home-content
-			h1 Ирина Чемышева
+			h1.home-content__header Ирина Чемышева
+			div.home-nav
+				a.home-nav__item(href="drawing.html")
+					img.home-nav__image(src="img/drawing.jpg")
+					span.home-nav__text графика
+				a.home-nav__item(href="painting.html")
+					img.home-nav__image(src="img/painting.jpg")
+					span.home-nav__text живопись
+				a.home-nav__item(href="illustration.html")
+					img.home-nav__image(src="img/illustration.jpg")
+					span.home-nav__text иллюстрация
