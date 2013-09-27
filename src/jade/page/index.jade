@@ -1,6 +1,14 @@
 extends ../layout
 block vars
 	- var pagename = "home";
-	- var pagetitle = "Главная"
+	- var pagetitle = "Главная";
+block header
+	header
 block content
-	
+	img.home-bg(src="img/draw.png")
+	div.wrapper
+		aside.home-aside
+			.photo
+				img(src="img/photo.jpg")
+		section.home-content
+			h1 Ирина Чемышева

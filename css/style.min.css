@@ -1,1 +1,1 @@
-body.home{background:url(../img/bg.jpg) top center}.wrapper{width:960px;margin:0 auto}
+body.home{background:url(../img/bg-index.jpg) top center;height:1500px;margin:0;padding:0;overflow-x:hidden;overflow-y:scroll}.home-bg{position:absolute;top:33px;left:50%;margin-left:-1000px}.wrapper{width:800px;margin:0 auto}header{height:26px;background:#5f2000;background:rgba(95,32,0,0.77)}.home-aside{float:left;width:270px}.home-content{padding-left:270px}.home-content>h1{margin:0}.photo{line-height:0;padding:125px 0 0 60px}.photo>img{width:160px}
