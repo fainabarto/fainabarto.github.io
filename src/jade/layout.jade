@@ -1,7 +1,7 @@
 block vars
 	- var pagename = "metapage";
 	- var pagetitle = "Умолчание";
-- var development = true;
+- var development = false;
 !!! 5
 html(class='no-js', lang='ru')
 	head
@@ -9,11 +9,7 @@ html(class='no-js', lang='ru')
 		title #{pagetitle} - Портфолио
 		meta(name='description', content='')
 		meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1')
-		if development
-			link(rel='stylesheet', href='css/style.css')
-		else
-			link(rel='stylesheet', href='css/style.min.css')
+		link(rel='stylesheet', href='css/style.min.css')
 		link(rel='shortcut icon', type='image/x-icon', href='favicon.ico')
 	body(class="#{pagename}")
-		header
 		block content

@@ -45,14 +45,6 @@ module.exports = function(grunt) {
 				files: {
 					"css/style.min.css": "src/less/style.less"
 				}
-			},
-			live: {
-				options: {
-					yuicompress: false
-				},
-				files: {
-					"css/style.css": "src/less/style.less"
-				}
 			}
 		},
 		// jade task
@@ -82,13 +74,13 @@ module.exports = function(grunt) {
 			},
 			less:{
 				files: ['src/less/**'],
-				tasks: ['less:live' , 'less:build'],
+				tasks: [ 'less:build'],
 				options: {
 					livereload: false
 				}
 			},
 			css:{
-				files: ['css/style.css']
+				files: ['css/style.min.css']
 			},
 			// scripts:{
 			// 	files: ['dev/js/org/**', 'dev/js/parts/**', 'dev/js/plugins-to-min/**'],
