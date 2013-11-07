@@ -2,8 +2,6 @@ extends ../layout
 block vars
 	- var pagename = "home";
 	- var pagetitle = "Главная";
-block header
-	header
 block content
 	div.home-bg
 		img.home-bg__img(src="img/draw.png")
@@ -18,12 +16,13 @@ block content
 		section.home-content
 			h1.home-content__header Ирина Чемышева
 			div.home-nav
+				a.home-nav__item(href="illustration.html")
+					img.home-nav__image(src="img/menu-illustration.jpg")
+					span.home-nav__text иллюстрация
 				a.home-nav__item(href="drawing.html")
-					img.home-nav__image(src="img/drawing.jpg")
+					img.home-nav__image(src="img/menu-drawing.jpg")
 					span.home-nav__text графика
 				a.home-nav__item(href="painting.html")
-					img.home-nav__image(src="img/painting.jpg")
+					img.home-nav__image(src="img/menu-painting.jpg")
 					span.home-nav__text живопись
-				a.home-nav__item(href="illustration.html")
-					img.home-nav__image(src="img/illustration.jpg")
-					span.home-nav__text иллюстрация
+				

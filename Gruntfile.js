@@ -57,21 +57,21 @@ module.exports = function(grunt) {
 		},
 		// jade task
 		jade: {
-			live: {
-				options: {
-					pretty: true
+			dist: {
+				options:{
+					data: function(dest, src) {
+						if (dest === "index.html"){
+							return null;
+						} else {
+							return require('./src/json/'+dest.replace(".html","")+'.json');
+						}
+					}
 				},
 				files: {
 					"index.html": ["src/jade/page/index.jade"],
-				}
-			},
-			build:{
-				options: {
-					pretty: true
-				},
-				files: {
-					/***  pages  ***/
-					"index.html": ["src/jade/page/index.jade"],
+					"illustration.html": ["src/jade/page/gallery.jade"],
+					"painting.html": ["src/jade/page/gallery.jade"],
+					"drawing.html": ["src/jade/page/gallery.jade"]
 				}
 			}
 		},
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
 			// },
 			jade:{
 				files: ['src/jade/**'],
-				tasks: ['jade:live']
+				tasks: ['jade:dist']
 			}
 		}
 	});
@@ -113,5 +113,4 @@ module.exports = function(grunt) {
 	grunt.registerTask('default',['watch']);
 	grunt.registerTask('icons', ['grunticon']);
 	grunt.registerTask('scripts', ['uglify:plugins', 'concat', 'uglify:main']);
-	grunt.registerTask('build',[ 'uglify:plugins','concat', 'uglify:main', 'grunticon', 'less:build','jade:build']);
 };
