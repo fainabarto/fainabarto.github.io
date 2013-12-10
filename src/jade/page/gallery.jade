@@ -3,3 +3,10 @@ block vars
 	- var pagename = "gallery";
 	- var pagetitle = jsonPagetitle;
 block content
+	div.gallery-bg
+		img.gallery-bg__img(src="img/draw-gallery.png", alt="Фон галереи")
+	.wrapper
+		h1.home-content__header
+			a(href="index.html") Ирина Марченко
+		h2.gallery-content__header художник-иллюстратор
+		div.gallery-name #{jsonPagetitle}
