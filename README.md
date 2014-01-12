@@ -1,8 +1,8 @@
-# Irina Chemysheva portfolio
+# Irina Marchenko portfolio
 
-Project built with these technologies:
+Project built with those technologies:
 
-* [GruntJs](http://gruntjs.com/)
+* [Grunt JS](http://gruntjs.com/)
 * [Jade](http://jade-lang.com/)
 * [Less](http://lesscss.org/)
 * [UglifyJS](https://github.com/mishoo/UglifyJS)
@@ -33,4 +33,4 @@ Project built with these technologies:
 
 # Images license
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.ru"><img alt="Лицензия Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.ru"><img alt="Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>

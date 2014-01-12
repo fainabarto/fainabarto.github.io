@@ -7,15 +7,13 @@
     "url": "https://github.com/fainabarto/fainabarto.github.io"
   },
   "devDependencies": {
-    "grunt": "~0.4.0",
-    "grunt-contrib-copy": ">=0.4.1",
-    "grunt-contrib-concat": ">=0.3.0",
-    "grunt-contrib-less": ">=0.6.4",
-    "grunt-contrib-uglify": ">=0.2.0",
-    "grunt-contrib-watch": ">=0.4.3",
-    "grunt-grunticon": ">=0.1",
-    "grunt-contrib-jade": ">=0.7.0",
-    "grunt-svgmin": ">=0.2.0",
-    "grunt-contrib-jshint": "~0.6.2"
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-less": "~0.9.0",
+    "grunt-contrib-jade": "~0.9.1",
+    "grunt-contrib-jshint": "~0.6.2",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-image-resize": "~0.3.0"
   }
 }

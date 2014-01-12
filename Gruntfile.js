@@ -3,20 +3,6 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		// concat task
-		concat:{
-			options:{
-				separator: ";\n"
-			},
-			plugins:{
-				src: ["dev/js/plugins/*.js"],
-				dest: "app/js/plugins.js"
-			},
-			main:{
-				src: ["dev/js/org/defs.js", "dev/js/parts/*.js", "dev/js/org/main.js"],
-				dest: "app/js/main.js"
-			}
-		},
 		jshint:{
 			all:["dev/js/org/defs.js", "dev/js/parts/*.js", "dev/js/org/main.js"]
 		},
@@ -97,7 +83,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
