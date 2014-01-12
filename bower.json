@@ -1,0 +1,23 @@
+{
+  "name": "Faina Barto portfolio",
+  "version": "0.5.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/fainabarto/fainabarto-fainabarto.github.io",
+  "authors": [
+    "Victor Marchenko <viktor.marchenko@gmail.com>"
+  ],
+  "description": "see README.md",
+  "main": "ru/index.html",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "1.10.2"
+  }
+}
