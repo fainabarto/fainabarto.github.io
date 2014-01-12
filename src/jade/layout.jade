@@ -2,14 +2,16 @@ block vars
 	- var pagename = "metapage";
 	- var pagetitle = "Умолчание";
 - var development = false;
-!!! 5
-html(class='no-js', lang='ru')
+doctype html
+html(class='no-js', lang='#{lang}')
 	head
 		meta(charset='UTF-8')
 		title #{pagetitle} - Портфолио
 		meta(name='description', content='')
 		meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1')
-		link(rel='stylesheet', href='css/style.min.css')
-		link(rel='shortcut icon', type='image/x-icon', href='favicon.ico')
+		link(rel='stylesheet', href='../assets/css/style.min.css')
+		link(rel='shortcut icon', type='image/x-icon', href='../assets/favicon.ico')
 	body(class="#{pagename}")
 		block content
+		script(src='../bower_components/jquery/jquery.min.js')
+		script(src='../assets/js/main.js')

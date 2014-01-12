@@ -4,24 +4,24 @@ block vars
 	- var pagetitle = "Главная";
 block content
 	div.home-bg
-		img.home-bg__img(src="img/draw.png", alt="Фон главной страницы")
+		img.home-bg__img(src="../assets/img/draw.png", alt="Фон главной страницы")
 	div.wrapper
 		aside.home-aside
 			.home-aside__img
-				img(src="img/photo.jpg")
+				img(src="../assets/img/photo.jpg")
 			.home-aside__contacts
 				div Контакты
 				a(href="mailto:faina_barto@mail.ru") faina_bart@mail.ru
 				a(href="skype:fainabarto") fainabarto (skype)
 		section.home-content
-			h1.home-content__header Ирина Марченко
+			h1.home-content__header #{text[lang].name}
 			div.home-nav
 				a.home-nav__item(href="illustration.html")
-					img.home-nav__image(src="img/menu-illustration.jpg")
+					img.home-nav__image(src="../assets/img/menu-illustration.jpg")
 					span.home-nav__text иллюстрация
 				a.home-nav__item(href="drawing.html")
-					img.home-nav__image(src="img/menu-drawing.jpg")
+					img.home-nav__image(src="../assets/img/menu-drawing.jpg")
 					span.home-nav__text графика
 				a.home-nav__item(href="painting.html")
-					img.home-nav__image(src="img/menu-painting.jpg")
+					img.home-nav__image(src="../assets/img/menu-painting.jpg")
 					span.home-nav__text живопись

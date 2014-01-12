@@ -1,24 +1,19 @@
 module.exports = function(grunt) {
+	// Jade config variables
+	var lang, json;
+
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
 		jshint:{
-			all:["dev/js/org/defs.js", "dev/js/parts/*.js", "dev/js/org/main.js"]
+			all:['src/js/main.js']
 		},
 		// uglify task
 		uglify:{
 			main:{
 				files: {
-					"app/js/main.min.js": ['app/js/main.js']
-				}
-			},
-			plugins:{
-				options: {
-					preserveComments: 'all'
-				},
-				files: {
-					"dev/js/plugins/jade-runtime.min.js":"dev/js/plugins-to-min/jade-runtime.js",
+					"assets/js/main.min.js": ['app/js/main.js']
 				}
 			}
 		},
@@ -26,10 +21,10 @@ module.exports = function(grunt) {
 		less: {
 			build: {
 				options: {
-					yuicompress: true
+					cleancss: true
 				},
 				files: {
-					"css/style.min.css": "src/less/style.less"
+					"assets/css/style.min.css": "src/less/style.less"
 				}
 			}
 		},
@@ -38,18 +33,23 @@ module.exports = function(grunt) {
 			dist: {
 				options:{
 					data: function(dest, src) {
-						if (dest === "index.html"){
-							return null;
-						} else {
-							return require('./src/json/'+dest.replace(".html","")+'.json');
-						}
+						lang = dest.match(/(ru|en)\//)[1],
+						json = (dest.match(/index.html/))
+								? require('./src/json/index.json')
+								: require('./src/json/'+dest.replace(".html","").replace(/ru\/|en\//,'')+'.json');
+						json.lang = lang;
+						return json;
 					}
 				},
 				files: {
-					"index.html": ["src/jade/page/index.jade"],
-					"illustration.html": ["src/jade/page/gallery.jade"],
-					"painting.html": ["src/jade/page/gallery.jade"],
-					"drawing.html": ["src/jade/page/gallery.jade"]
+					"ru/index.html": ["src/jade/page/index.jade"],
+					"ru/illustration.html": ["src/jade/page/gallery.jade"],
+					"ru/painting.html": ["src/jade/page/gallery.jade"],
+					"ru/drawing.html": ["src/jade/page/gallery.jade"],
+					"en/index.html": ["src/jade/page/index.jade"],
+					"en/illustration.html": ["src/jade/page/gallery.jade"],
+					"en/painting.html": ["src/jade/page/gallery.jade"],
+					"en/drawing.html": ["src/jade/page/gallery.jade"]
 				}
 			}
 		},
@@ -66,14 +66,14 @@ module.exports = function(grunt) {
 				}
 			},
 			css:{
-				files: ['css/style.min.css']
+				files: ['assets/css/style.min.css']
 			},
-			// scripts:{
-			// 	files: ['dev/js/org/**', 'dev/js/parts/**', 'dev/js/plugins-to-min/**'],
-			// 	tasks: ['jshint', 'uglify:plugins', 'concat', 'uglify:main']
-			// },
+			scripts:{
+				files: ['src/js/main.js'],
+				tasks: ['jshint', 'uglify']
+			},
 			jade:{
-				files: ['src/jade/**'],
+				files: ['src/jade/**', 'src/json/**'],
 				tasks: ['jade:dist']
 			}
 		}
@@ -82,12 +82,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// Default task(s).
 	grunt.registerTask('default',['watch']);
-	grunt.registerTask('icons', ['grunticon']);
-	grunt.registerTask('scripts', ['uglify:plugins', 'concat', 'uglify:main']);
 };
