@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		uglify:{
 			main:{
 				files: {
-					"assets/js/main.min.js": ['app/js/main.js']
+					"assets/js/main.min.js": ['src/js/main.js']
 				}
 			}
 		},
@@ -76,6 +76,14 @@ module.exports = function(grunt) {
 				files: ['src/jade/**', 'src/json/**'],
 				tasks: ['jade:dist']
 			}
+		},
+		copy:{
+			jQuery:{
+				src:["bower_components/jquery/jquery.min.js"],
+				dest: "assets/js/vendor/",
+				expand: true,
+				flatten: true
+			}
 		}
 	});
 	
@@ -84,6 +92,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	// Default task(s).
 	grunt.registerTask('default',['watch']);
