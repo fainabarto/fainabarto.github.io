@@ -34,10 +34,11 @@ module.exports = function(grunt) {
 				options:{
 					data: function(dest, src) {
 						lang = dest.match(/(ru|en)\//)[1],
-						json = (dest.match(/index.html/))
-								? require('./src/json/index.json')
-								: require('./src/json/'+dest.replace(".html","").replace(/ru\/|en\//,'')+'.json');
+						page = dest.match(/[ru|en]\/(\S+)\.html/)[1],
+						json = require('./src/json/db.json');
+						json.page = page;
 						json.lang = lang;
+						json.gallery = require('./src/json/gallery.json');
 						return json;
 					}
 				},

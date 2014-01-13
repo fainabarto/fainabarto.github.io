@@ -1,12 +1,15 @@
 extends ../layout
 block vars
-	- var pagename = "gallery";
-	- var pagetitle = jsonPagetitle;
+	- var pagename = "gallery " + page;
+	- var pagetitle = text[lang][page];
 block content
 	div.gallery-bg
 		img.gallery-bg__img(src="../assets/img/draw-gallery.png", alt="Фон галереи")
 	.wrapper
 		h1.home-content__header
-			a(href="index.html") Ирина Марченко
-		h2.gallery-content__header художник-иллюстратор
-		div.gallery-name #{jsonPagetitle}
+			a(href="index.html") #{text[lang].name}
+		h2.gallery-content__header #{text[lang].subtitle}
+		div.gallery-name #{text[lang][page]}
+		div.gallery-items
+			each item in gallery[page]
+				img(src='#{item.thumb}')

@@ -1,0 +1,20 @@
+{
+	"illustration":[
+		{
+			"thumb": "img/thumb/drawing/1.jpg",
+			"image": "img/thumb/drawing/2.jpg"
+		}
+	],
+	"drawing":[
+		{
+			"thumb": "img/thumb/drawing/1.jpg",
+			"image": "img/thumb/drawing/2.jpg"
+		}
+	],
+	"painting":[
+		{
+			"thumb": "img/thumb/drawing/1.jpg",
+			"image": "img/thumb/drawing/2.jpg"
+		}
+	]
+}

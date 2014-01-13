@@ -12,9 +12,9 @@
 			l_lang = navigator.language;
 		else
 			l_lang = "en";
-		location.href = (l_lang === 'en')
-			? 'en/index.html'
-			: 'ru/index.html';
+		location.href = (l_lang.match(/ru/))
+			? 'ru/index.html'
+			: 'en/index.html';
 	</script>
 </head>
 <body></body>

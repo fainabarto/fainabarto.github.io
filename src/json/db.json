@@ -1,0 +1,24 @@
+{
+	"text":{
+		"ru": {
+			"sitename": "Портфолио Ирины Марченко",
+			"name": "Ирина Марченко",
+			"subtitle": "художник-иллюстратор",
+			"contacts": "Контакты",
+			"index": "Главная",
+			"illustration": "Иллюстрация",
+			"drawing": "Графика",
+			"painting": "Живопись"
+		},
+		"en": {
+			"sitename": "Irina Marchenko Portfolio",
+			"name": "Irina Marchenko",
+			"subtitle": "illustrator",
+			"contacts": "Contacts",
+			"index": "Main page",
+			"illustration": "Illustration",
+			"drawing": "Drawing",
+			"painting": "Painting"
+		}
+	}
+}
