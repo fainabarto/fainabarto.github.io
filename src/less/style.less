@@ -1,3 +1,211 @@
-@import "common";
-@import "page/home";
-@import "page/gallery";
+/* ==========================================================================
+	 Mixins
+	 ========================================================================== */
+@import 'sprite/sprites';
+.box-sizing(@value){
+	-moz-box-sizing: @value;
+	box-sizing: @value;
+}
+/* ==========================================================================
+	 Common
+	 ========================================================================== */
+@font-face {
+	font-family: 'flowregular';
+	src: url('../fonts/flow-webfont.eot');
+	src: url('../fonts/flow-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/flow-webfont.woff') format('woff'),
+		 url('../fonts/flow-webfont.ttf') format('truetype'),
+		 url('../fonts/flow-webfont.svg#flowregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+html{
+	margin: 0;
+	padding: 0;
+	overflow: scroll;
+}
+body{
+	color: #ffdbc6;
+	font-size: 24px;
+	font-family: 'flowregular', 'Comic Sans';
+	overflow: hidden;
+}
+a{
+	color: #ffdbc6;
+	text-decoration: none;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+.wrapper{
+	width: 800px;
+	margin: 0 auto;
+}
+header{
+	height: 26px;
+	background: #5F2000;
+	background: rgba(95,32,0,0.77);
+}
+h1,h2{
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
+}
+.top-block{
+	height: 80px;
+	display: block;
+}
+.under-top__block{
+	height: 52px;
+}
+.page-title{
+	font-size: 40px;
+	text-align: center;
+}
+.page-subtitle{
+	font-size: 32px;
+	text-align: center;
+}
+.lang{
+	margin: 10px;
+}
+.lang__item{
+	&+&{
+		margin-left: 20px;
+	}
+}
+.main-content{
+	padding-left: 274px;
+}
+.cats{
+	position: relative;
+	margin-top: 150px;
+	margin-bottom: -554px;
+}
+.cats__image{
+	position: relative;
+	background: url(../img/cats.png) center no-repeat;
+	width: 1313px;
+	height: 554px;
+	top: -210px;
+	left: (800 - 1313)/2px;
+}
+.signature{
+	background: url(../img/sign.png);
+	width: 242px;
+	height: 214px;
+	position: absolute;
+	right: 0;
+	top: 100px;
+	&.m-gallery{
+		right: -4px;
+		top: 200px;
+	}
+}
+/* ==========================================================================
+	 Aside Blocks
+	 ========================================================================== */
+.aside{
+	.box-sizing(border-box);
+	float: left;
+	width: 274px;
+	padding: 0 30px;
+}
+.aside__img{
+	.box-sizing(border-box);
+	.sprite-photo_frame();
+	padding: 20px 32px;
+	>img{
+		width: 100%;
+	}
+}
+.aside__contacts{
+	&:before{
+		content: '';
+		display: block;
+		.sprite-line_small();
+	}
+	&:after{
+		content: '';
+		display: block;
+		.sprite-after_contact();
+	}
+	&.m-no-top{
+		&:before{
+			content: none;
+		}
+	}
+	>a{
+		display: block;
+	}
+}
+.flower{
+	.sprite-flower_big();
+}
+.flower-small{
+	.sprite-flower_small();
+}
+
+/* ==========================================================================
+	 Home page
+	 ========================================================================== */
+body.p-home{
+	background:url(../img/lines_main.png) center top no-repeat, url(../img/houses.png) center 100px no-repeat, url(../img/bg_main_home.jpg) center top;
+	height: 1450px;
+	margin: 0;
+	padding: 0;
+}
+.home-nav{
+	width: 455px;
+	margin: 130px auto 0;
+}
+.home-nav__item{
+	display: block;
+	margin-bottom: 75px;
+	&:hover{
+		opacity: 0.9;
+		text-decoration: none;
+	}
+}
+.home-nav__image{
+	width: 100%;
+}
+.home-nav__text{
+	display: block;
+	height: 140px;
+	margin-top: -140px;
+	text-align: center;
+	color: #320404;
+	font-size: 66px;
+}
+/* ==========================================================================
+	 Gallery page
+	 ========================================================================== */
+body.p-gallery{
+	background:url(../img/lines_main.png) center top no-repeat, url(../img/bg_main_gallery.jpg) center top;
+	height: 1400px;
+}
+.back-button{}
+.back-button__text{}
+.back-button__arrow{
+	.sprite-arrow_back();
+}
+.gallery-nav{}
+.gallery-nav__up{
+	.sprite-arrow_up();
+	cursor: pointer;
+}
+.gallery-nav__list{}
+.gallery-nav__down{
+	.sprite-arrow_down();
+	cursor: pointer;
+}
+.gallery-name{
+	text-align: right;
+	&:after{
+		content: '';
+		display: block;
+		float:right;
+		.sprite-line_small();
+	}
+}

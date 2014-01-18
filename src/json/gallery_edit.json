@@ -1,24 +1,21 @@
 {
 	"illustration":[
 		{
-			"thumb": "img/thumb/drawing/1.jpg",
-			"image": "img/thumb/drawing/2.jpg",
+			"image": "2.jpg",
 			"ru": "Описание",
 			"en": "Description"
 		}
 	],
 	"graphics":[
 		{
-			"thumb": "img/thumb/drawing/1.jpg",
-			"image": "img/thumb/drawing/2.jpg",
+			"image": "2.jpg",
 			"ru": "Описание",
 			"en": "Description"
 		}
 	],
 	"painting":[
 		{
-			"thumb": "img/thumb/drawing/1.jpg",
-			"image": "img/thumb/drawing/2.jpg",
+			"image": "2.jpg",
 			"ru": "Описание",
 			"en": "Description"
 		}

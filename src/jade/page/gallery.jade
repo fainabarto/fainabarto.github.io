@@ -1,15 +1,35 @@
 extends ../layout
 block vars
-	- var pagename = "gallery " + page;
+	- var pagename = "p-gallery p-" + page;
 	- var pagetitle = text[lang][page];
 block content
-	div.gallery-bg
-		img.gallery-bg__img(src="../assets/img/draw-gallery.png", alt="Фон галереи")
 	.wrapper
-		h1.home-content__header
-			a(href="index.html") #{text[lang].name}
-		h2.gallery-content__header #{text[lang].subtitle}
-		div.gallery-name #{text[lang][page]}
-		div.gallery-items
-			each item in gallery[page]
-				img(src='#{item.thumb}')
+		aside.aside
+			a(href='index.html').top-block.back-button
+				.back-button__text #{text[lang].to_home}
+				.back-button__arrow
+			.gallery-nav
+				.gallery-nav__up.js-navUp
+				.gallery-nav__list
+				.gallery-nav__down.js-navDown
+		section.main-content
+			.top-block
+				h1.page-title
+					a(href="index.html") #{text[lang].name}
+			.under-top__block
+					h2.page-subtitle #{text[lang].subtitle}
+			.gallery-name
+				.gallery-name__text #{text[lang][page]}
+			div.gallery-items
+				each item in gallery[page]
+					img(src='#{item.thumb}')
+	.cats.wrapper
+		.cats__image
+		.signature.m-galery
+	.wrapper
+		.aside
+			.aside__contacts.m-no-top
+				div #{text[lang].contacts}
+				a(href="mailto:faina_barto@mail.ru") faina_barto@mail.ru
+				a(href="skype:fainabarto") fainabarto (skype)
+			.flower-small

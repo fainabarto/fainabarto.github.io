@@ -46,11 +46,11 @@ module.exports = function(grunt) {
 					"ru/index.html": ["src/jade/page/index.jade"],
 					"ru/illustration.html": ["src/jade/page/gallery.jade"],
 					"ru/painting.html": ["src/jade/page/gallery.jade"],
-					"ru/drawing.html": ["src/jade/page/gallery.jade"],
+					"ru/graphics.html": ["src/jade/page/gallery.jade"],
 					"en/index.html": ["src/jade/page/index.jade"],
 					"en/illustration.html": ["src/jade/page/gallery.jade"],
 					"en/painting.html": ["src/jade/page/gallery.jade"],
-					"en/drawing.html": ["src/jade/page/gallery.jade"]
+					"en/graphics.html": ["src/jade/page/gallery.jade"]
 				}
 			}
 		},
@@ -85,6 +85,31 @@ module.exports = function(grunt) {
 				expand: true,
 				flatten: true
 			}
+		},
+		spritesheet: {
+			dist:{
+				sprites: {
+					'src/img/style/sprite.png': ['src/img/sprite/*.png']
+				},
+				sheet: 'src/less/sprite/sprites.less',
+				templateUrl: 'src/less/sprite/sprites.less.mustache'
+			}
+		},
+		imagemin: {
+			style: {
+				options: {
+					cache: false,
+					optimizationLevel: 2,
+					pngquant: true,
+					progressive: true
+				},
+				files: [{
+					expand: true,
+					cwd: 'src/img/style',
+					src: ['*.{png,jpg}'],
+					dest: 'assets/img/'
+				}]
+			}
 		}
 	});
 	
@@ -94,6 +119,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-spritesheet');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 	// Default task(s).
 	grunt.registerTask('default',['watch']);

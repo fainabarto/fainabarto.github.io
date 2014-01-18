@@ -1,26 +1,34 @@
 extends ../layout
 block vars
-	- var pagename = "home";
+	- var pagename = "p-home";
 block content
-	div.home-bg
-		img.home-bg__img(src="../assets/img/draw.png", alt="#{text[lang].sitename}")
 	div.wrapper
-		aside.home-aside
-			.home-aside__img
+		aside.aside
+			.top-block.lang
+				a(href='../ru/').lang__item Русский
+				a(href='../en/').lang__item English
+			.aside__img
 				img(src="../assets/img/photo.jpg")
-			.home-aside__contacts
+			.aside__contacts
 				div #{text[lang].contacts}
-				a(href="mailto:faina_barto@mail.ru") faina_bart@mail.ru
+				a(href="mailto:faina_barto@mail.ru") faina_barto@mail.ru
 				a(href="skype:fainabarto") fainabarto (skype)
-		section.home-content
-			h1.home-content__header #{text[lang].name}
+			.flower
+		section.main-content
+			.top-block
+				h1.page-title #{text[lang].name}
+			.under-top__block
+				h2.page-subtitle #{text[lang].subtitle}
 			div.home-nav
 				a.home-nav__item(href="illustration.html")
 					img.home-nav__image(src="../assets/img/menu-illustration.jpg")
 					span.home-nav__text #{text[lang].illustration}
-				a.home-nav__item(href="drawing.html")
+				a.home-nav__item(href="graphics.html")
 					img.home-nav__image(src="../assets/img/menu-drawing.jpg")
-					span.home-nav__text #{text[lang].drawing}
+					span.home-nav__text #{text[lang].graphics}
 				a.home-nav__item(href="painting.html")
 					img.home-nav__image(src="../assets/img/menu-painting.jpg")
 					span.home-nav__text #{text[lang].painting}
+	.cats.wrapper
+		.cats__image
+		.signature

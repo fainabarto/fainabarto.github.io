@@ -7,7 +7,7 @@
 			"contacts": "Контакты",
 			"index": "Главная",
 			"illustration": "Иллюстрация",
-			"drawing": "Графика",
+			"graphics": "Графика",
 			"painting": "Живопись"
 		},
 		"en": {
@@ -17,7 +17,7 @@
 			"contacts": "Contacts",
 			"index": "Main page",
 			"illustration": "Illustration",
-			"drawing": "Drawing",
+			"graphics": "Graphics",
 			"painting": "Painting"
 		}
 	}
