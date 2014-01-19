@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+
 	// Jade config variables
 	var lang, json;
 
