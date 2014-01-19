@@ -1,24 +1,41 @@
 {
 	"illustration":[
 		{
-			"thumb": "img/thumb/drawing/1.jpg",
-			"image": "img/thumb/drawing/2.jpg",
+			"image": "1.jpg",
 			"ru": "Описание",
 			"en": "Description"
 		}
 	],
 	"graphics":[
 		{
-			"thumb": "img/thumb/drawing/1.jpg",
-			"image": "img/thumb/drawing/2.jpg",
-			"ru": "Описание",
-			"en": "Description"
+			"image": "1.jpg",
+			"ru": "Женская обнажённая модель<br>Бумага, сепия",
+			"en": "Woman nude model<br>Paper, sepia"
+		},
+		{
+			"image": "2.jpg",
+			"ru": "Женская обнажённая модель<br>Бумага, сепия",
+			"en": "Woman nude model<br>Paper, sepia"
+		},
+		{
+			"image": "3.jpg",
+			"ru": "Женская обнажённая модель<br>Бумага, уголь",
+			"en": "Woman nude model<br>Paper, charcoal"
+		},
+		{
+			"image": "4.jpg",
+			"ru": "Автопортрет<br>Бумага, сепия",
+			"en": "Self-portrait<br>Paper, sepia"
+		},
+		{
+			"image": "5.jpg",
+			"ru": "Женская одетая модель<br>Бумага, уголь",
+			"en": "Woman dressed model<br>Paper, charcoal"
 		}
 	],
 	"painting":[
 		{
-			"thumb": "img/thumb/drawing/1.jpg",
-			"image": "img/thumb/drawing/2.jpg",
+			"image": "1.jpg",
 			"ru": "Описание",
 			"en": "Description"
 		}
