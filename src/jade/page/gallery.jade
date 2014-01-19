@@ -13,8 +13,9 @@ block content
 					.icon
 				.gallery-nav__list.js-list
 					.gallery-nav__holder.js-holder
-						each item in gallery[page]
-							.gallery-nav__item.js-galleryItem(
+						each item,i in gallery[page]
+							- var className = (i==0)? 'gallery-nav__item js-galleryItem m-active':'gallery-nav__item js-galleryItem';
+							div(class='#{className}',
 									data-big='../assets/img/gallery/#{page}/big/#{item.image}',
 									data-description='#{item[lang]}')
 								img(src='../assets/img/gallery/#{page}/thumb/#{item.image}')

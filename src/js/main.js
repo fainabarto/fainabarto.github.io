@@ -1,47 +1,80 @@
-$(document).ready(function() {
-	var $navUp = $('.js-navUp'),
-		$holder = $('.js-holder'),
-		listHeight = $('.js-list').height(),
-		$navDown = $('.js-navDown'),
+document.addEventListener('DOMContentLoaded', function(){
+	var dom = {};
+	dom.$ = function(selector){
+		return document.body.querySelector(selector);
+	};
+	dom.$all = function(selector){
+		return document.body.querySelectorAll(selector);
+	};
+	dom.getStyle = function(element){
+		return window.getComputedStyle(element);
+	};
+	dom.hasClass = function(element, className){
+		return element.className.indexOf(className) !== -1;
+	};
+	dom.addClass = function(element, className){
+		if (!dom.hasClass(element, className)){
+			element.className += ' ' + className;
+		}
+	};
+	dom.removeClass = function(element, className){
+		if (element.className.indexOf(' ' + className) !== -1){
+			element.className = element.className.replace(' '+className, '');
+		} else {
+			element.className = element.className.replace(className, '');
+		}
+	};
+	dom.addEvent = function(element, eventName, callback){
+		element.addEventListener(eventName, callback);
+	};
+	var $navUp = dom.$('.js-navUp'),
+		$holder = dom.$('.js-holder'),
+		listHeight = parseInt(dom.getStyle(dom.$('.js-list')).height, 10),
+		$navDown = dom.$('.js-navDown'),
 		position = 0,
 		moveHolder = function(direction){
-			var current = parseInt($holder.css('top').replace('px', ''), 10);
-			$holder.css('top', current - listHeight*direction);
+			var current = parseInt(dom.getStyle($holder).top.replace('px', ''), 10);
+			$holder.style.top = current - listHeight*direction + 'px';
 			if (current - listHeight*direction === 0){
-				$navUp.addClass('m-inactive');
+				dom.addClass($navUp, 'm-inactive');
 			} else {
-				$navUp.removeClass('m-inactive');
+				dom.removeClass($navUp, 'm-inactive');
 			}
-			if (Math.abs(current - listHeight*direction) + listHeight >= $holder.height()){
-				$navDown.addClass('m-inactive');
+			if (Math.abs(current - listHeight*direction) + listHeight >= $holder.offsetHeight){
+				dom.addClass($navDown, 'm-inactive');
 			} else {
-				$navDown.removeClass('m-inactive');
+				dom.removeClass($navDown, 'm-inactive');
 			}
 		};
-	$navUp.on('click', function(){
-		if (!$navUp.hasClass('m-inactive')){
+	dom.addEvent($navUp, 'click', function(){
+		if (!dom.hasClass($navUp,'m-inactive')){
 			moveHolder(-1);
 		}
 	});
-	$navDown.on('click', function(){
-		if (!$navDown.hasClass('m-inactive')){
+	dom.addEvent($navDown, 'click', function(e){
+		if (!dom.hasClass($navDown, 'm-inactive')){
 			moveHolder(1);
 		}
 	});
 	moveHolder(0);
-	var	$image = $('.js-image'),
-		$preloader = $('.js-preloader'),
-		$info = $('.js-info'),
-		$elements = $('.js-galleryItem');
-	$holder.on('click', '.js-galleryItem', function(){
-		var $tmpImg = $('<img/>'),
+	var	$image = dom.$('.js-image'),
+		$preloader = dom.$('.js-preloader'),
+		$info = dom.$('.js-info'),
+		$elements = dom.$all('.js-galleryItem'),
+		element,
+		tmpImg = document.createElement('img'),
+		itemClickCallback = function(){
 			element = this;
-		$elements.removeClass('m-active');
-		this.className += ' m-active';
-		$tmpImg.on('load', function(){
-			$image.attr('src', $tmpImg.attr('src'));
-			$info.html(element.getAttribute('data-description'));
-		});
-		$tmpImg.attr('src', element.getAttribute('data-big'));
-	});
+			dom.removeClass(dom.$('.js-galleryItem.m-active'), 'm-active');
+			dom.addClass(element, 'm-active');
+			tmpImg.onload = function(){
+				$image.setAttribute('src', tmpImg.getAttribute('src'));
+				$info.innerHTML = element.getAttribute('data-description');
+				tmpImg.onload = null;
+			};
+			tmpImg.setAttribute('src', element.getAttribute('data-big'));
+		};
+	for (var i = 0; i < $elements.length; i++) {
+		dom.addEvent($elements[i], 'click', itemClickCallback);
+	}
 });
