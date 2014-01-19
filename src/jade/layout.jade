@@ -1,5 +1,11 @@
 block vars
 	- var pagename = "metapage";
+mixin contacts(top)
+	div(class='aside__contacts #{addon}')
+		div #{text[lang].contacts}:
+		a(href="mailto:faina_barto@mail.ru") fainabarto@outlook.com
+		a(href="mailto:faina_barto@mail.ru") faina_barto@mail.ru
+		a(href="skype:fainabarto") fainabarto (skype)
 doctype html
 html(class='no-js', lang='#{lang}')
 	head

@@ -9,10 +9,7 @@ block content
 				a(href='../en/').lang__item English
 			.aside__img
 				img(src="../assets/img/photo.jpg")
-			.aside__contacts
-				div #{text[lang].contacts}
-				a(href="mailto:faina_barto@mail.ru") faina_barto@mail.ru
-				a(href="skype:fainabarto") fainabarto (skype)
+			mixin contacts()
 			.flower
 		section.main-content
 			.top-block

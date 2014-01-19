@@ -1,9 +1,79 @@
 {
 	"illustration":[
 		{
+			"image": "TheSnowQueen.jpg",
+			"ru": "Иллюстрация к сказке Г.Х.Андерсена «Снежная&nbsp;королева»",
+			"en": "Illustration for Hans Christian Andersen tale \"The&nbsp;Snow&nbsp;Queen\""
+		},
+		{
+			"image": "2.jpg",
+			"ru": "Мизантропия",
+			"en": "Misanthropy"
+		},
+		{
+			"image": "3.jpg",
+			"ru": "",
+			"en": ""
+		},
+		{
+			"image": "4.jpg",
+			"ru": "Иллюстрация к сказке Г.Х.Андерсена «Дикие лебеди»<br>Акварель",
+			"en": "Illustration for Hans Christian Andersen tale \"Wild&nbsp;Swans \"<br>Watercolor"
+		},
+		{
+			"image": "5.jpg",
+			"ru": "Иллюстрация к сказке Г.Х.Андерсена «Дикие лебеди»<br>Акварель",
+			"en": "Illustration for Hans Christian Andersen tale \"Wild&nbsp;Swans\"<br>watercolor"
+		},
+		{
 			"image": "1.jpg",
-			"ru": "Описание",
-			"en": "Description"
+			"ru": "Флейта",
+			"en": "Flute"
+		},
+		{
+			"image": "6.jpg",
+			"ru": "",
+			"en": ""
+		},
+		{
+			"image": "8.jpg",
+			"ru": "",
+			"en": ""
+		},
+		{
+			"image": "22.jpg",
+			"ru": "",
+			"en": ""
+		},
+		{
+			"image": "25.jpg",
+			"ru": "",
+			"en": ""
+		},
+		{
+			"image": "26.jpg",
+			"ru": "",
+			"en": ""
+		},
+		{
+			"image": "27.jpg",
+			"ru": "",
+			"en": ""
+		},
+		{
+			"image": "28.jpg",
+			"ru": "",
+			"en": ""
+		},
+		{
+			"image": "41.jpg",
+			"ru": "",
+			"en": ""
+		},
+		{
+			"image": "54.jpg",
+			"ru": "",
+			"en": ""
 		}
 	],
 	"graphics":[
