@@ -9,20 +9,29 @@ block content
 				.back-button__text #{text[lang].to_home}
 				.back-button__arrow
 			.gallery-nav
-				.gallery-nav__up.js-navUp
-				.gallery-nav__list
-				.gallery-nav__down.js-navDown
+				.gallery-nav__control.m-up.js-navUp
+					.icon
+				.gallery-nav__list.js-list
+					.gallery-nav__holder.js-holder
+						each item in gallery[page]
+							.gallery-nav__item.js-galleryItem(
+									data-big='../assets/img/gallery/#{page}/big/#{item.image}',
+									data-description='#{item[lang]}')
+								img(src='../assets/img/gallery/#{page}/thumb/#{item.image}')
+				.gallery-nav__control.m-down.js-navDown
+					.icon
 		section.main-content
 			.top-block
-				h1.page-title
-					a(href="index.html") #{text[lang].name}
+				h1.page-title #{text[lang].name}
 			.under-top__block
 					h2.page-subtitle #{text[lang].subtitle}
 			.gallery-name
 				.gallery-name__text #{text[lang][page]}
-			div.gallery-items
-				each item in gallery[page]
-					img(src='#{item.thumb}')
+			.gallery-image__wrapper
+				.galery-image
+					img.galery-image__img.m-visible.js-image(src='../assets/img/gallery/#{page}/big/#{gallery[page][0].image}')
+					.gallery-image__preload.js-preloader
+					.galery-image__info.js-info !{gallery[page][0][lang]}
 	.cats.wrapper
 		.cats__image
 		.signature.m-galery

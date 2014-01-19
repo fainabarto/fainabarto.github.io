@@ -1,7 +1,17 @@
 module.exports = function(grunt) {
 
 	// Jade config variables
-	var lang, json;
+	var lang, json, obj;
+	var imageList = function(size){
+		json = require('./src/json/gallery.json');
+		obj = {};
+		for(item in json){
+			for (var i = 0; i < json[item].length; i++) {
+				obj['assets/img/gallery/' + item + '/' + size + '/' + json[item][i].image] = 'src/img/gallery/' + item + '/' + json[item][i].image;
+			}
+		}
+		return obj;
+	};
 
 	// Project configuration.
 	grunt.initConfig({
@@ -55,38 +65,6 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		// watch task
-		watch:{
-			options:{
-				livereload: true
-			},
-			less:{
-				files: ['src/less/**'],
-				tasks: [ 'less:build'],
-				options: {
-					livereload: false
-				}
-			},
-			css:{
-				files: ['assets/css/style.min.css']
-			},
-			scripts:{
-				files: ['src/js/main.js'],
-				tasks: ['jshint', 'uglify']
-			},
-			jade:{
-				files: ['src/jade/**', 'src/json/**'],
-				tasks: ['jade:dist']
-			}
-		},
-		copy:{
-			jQuery:{
-				src:["bower_components/jquery/jquery.min.js"],
-				dest: "assets/js/vendor/",
-				expand: true,
-				flatten: true
-			}
-		},
 		spritesheet: {
 			dist:{
 				sprites: {
@@ -111,6 +89,55 @@ module.exports = function(grunt) {
 					dest: 'assets/img/'
 				}]
 			}
+		},
+		image_resize: {
+			gallery_thumb:{
+				options: {
+					width: 150,
+					height: 150,
+					overwrite: false,
+					quality: 1
+				},
+				files: imageList('thumb')
+			},
+			galery_big:{
+				options: {
+					height: 600,
+					width: 470,
+					overwrite: false,
+					quality: 1,
+					upscale: true
+				},
+				files: imageList('big')
+			}
+		},
+		// watch task
+		watch:{
+			options:{
+				livereload: true
+			},
+			less:{
+				files: ['src/less/**'],
+				tasks: [ 'less:build'],
+				options: {
+					livereload: false
+				}
+			},
+			css:{
+				files: ['assets/css/style.min.css']
+			},
+			scripts:{
+				files: ['src/js/main.js'],
+				tasks: ['jshint', 'uglify']
+			},
+			jade:{
+				files: ['src/jade/**', 'src/json/db.json'],
+				tasks: ['jade:dist']
+			},
+			gallery: {
+				files: ['src/json/gallery.json'],
+				tasks: ['image_resize', 'jade:dist']
+			}
 		}
 	});
 	
@@ -122,7 +149,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-spritesheet');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
-
+	grunt.loadNpmTasks('grunt-image-resize');
 	// Default task(s).
 	grunt.registerTask('default',['watch']);
 };

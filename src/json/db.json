@@ -8,7 +8,8 @@
 			"index": "Главная",
 			"illustration": "Иллюстрация",
 			"graphics": "Графика",
-			"painting": "Живопись"
+			"painting": "Живопись",
+			"to_home": "на главную"
 		},
 		"en": {
 			"sitename": "Irina Marchenko Portfolio",
@@ -18,7 +19,8 @@
 			"index": "Main page",
 			"illustration": "Illustration",
 			"graphics": "Graphics",
-			"painting": "Painting"
+			"painting": "Painting",
+			"to_home": "to home"
 		}
 	}
 }
