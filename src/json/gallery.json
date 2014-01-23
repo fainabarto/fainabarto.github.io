@@ -17,12 +17,12 @@
 		},
 		{
 			"image": "4.jpg",
-			"ru": "Иллюстрация к сказке Г.Х.Андерсена «Дикие лебеди»<br>Акварель",
+			"ru": "Иллюстрация к сказке Г.Х.Андерсена «Дикие&nbsp;лебеди»<br>Акварель",
 			"en": "Illustration for Hans Christian Andersen tale \"Wild&nbsp;Swans \"<br>Watercolor"
 		},
 		{
 			"image": "5.jpg",
-			"ru": "Иллюстрация к сказке Г.Х.Андерсена «Дикие лебеди»<br>Акварель",
+			"ru": "Иллюстрация к сказке Г.Х.Андерсена «Дикие&nbsp;лебеди»<br>Акварель",
 			"en": "Illustration for Hans Christian Andersen tale \"Wild&nbsp;Swans\"<br>watercolor"
 		},
 		{
@@ -32,13 +32,13 @@
 		},
 		{
 			"image": "6.jpg",
-			"ru": "",
-			"en": ""
+			"ru": "Иллюстрация к русской народной сказке",
+			"en": "Illustration for the Russian folk tale"
 		},
 		{
 			"image": "8.jpg",
-			"ru": "",
-			"en": ""
+			"ru": "Обложка к сборнику сказок",
+			"en": "Cover for the collection of fairy tales"
 		},
 		{
 			"image": "22.jpg",
@@ -57,13 +57,13 @@
 		},
 		{
 			"image": "27.jpg",
-			"ru": "",
-			"en": ""
+			"ru": "Иллюстрация к сказке «Маша и медведь»",
+			"en": "Illustration for the tale \"Masha and the Bear\""
 		},
 		{
 			"image": "28.jpg",
-			"ru": "",
-			"en": ""
+			"ru": "Иллюстрация к сказке «Царь-медведь»",
+				"en": "Illustration for the tale \"Tsar-bear\""
 		},
 		{
 			"image": "41.jpg",
@@ -99,15 +99,30 @@
 		},
 		{
 			"image": "5.jpg",
-			"ru": "Женская одетая модель<br>Бумага, уголь",
-			"en": "Woman dressed model<br>Paper, charcoal"
+			"ru": "Женская одетая модель<br>Бумага, сепия",
+			"en": "Woman dressed model<br>Paper, sepia"
 		}
 	],
 	"painting":[
 		{
-			"image": "1.jpg",
-			"ru": "Описание",
-			"en": "Description"
+			"image":"2.jpg",
+			"ru":"",
+			"en":""
+		},
+		{
+			"image":"4.jpg",
+			"ru":"",
+			"en":""
+		},
+		{
+			"image":"6.jpg",
+			"ru":"",
+			"en":""
+		},
+		{
+			"image":"12.jpg",
+			"ru":"",
+			"en":""
 		}
 	]
 }
