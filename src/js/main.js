@@ -27,6 +27,28 @@ document.addEventListener('DOMContentLoaded', function(){
 	dom.addEvent = function(element, eventName, callback){
 		element.addEventListener(eventName, callback);
 	};
+	var FnStack = function() {
+		var i = 0,
+			stack = [],
+			fnStack = this;
+		this.addFn = function(fn, delay, args) {
+			stack.push({fn:fn, delay:delay, args:args});
+		};
+		this.play = function(){
+			stack[i].fn(stack[i].args);
+			if ((++i) < stack.length){
+				setTimeout(fnStack.play, stack[i-1].delay);
+			}
+		};
+		this.all = function(){
+			for (var j = stack.length - 1; j >= 0; j--) {
+				stack[j].fn();
+			}
+		};
+		this.reload = function() {
+			i = 0;	
+		};
+	};
 	if (dom.hasClass(document.body, 'p-gallery')){
 		var $navUp = dom.$('.js-navUp'),
 			$holder = dom.$('.js-holder'),
@@ -46,6 +68,9 @@ document.addEventListener('DOMContentLoaded', function(){
 				} else {
 					dom.removeClass($navDown, 'm-inactive');
 				}
+			},
+			moveHolderDown = function(){
+				moveHolder(1);
 			};
 		dom.addEvent($navUp, 'click', function(){
 			if (!dom.hasClass($navUp,'m-inactive')){
@@ -62,21 +87,46 @@ document.addEventListener('DOMContentLoaded', function(){
 			$preloader = dom.$('.js-preloader'),
 			$info = dom.$('.js-info'),
 			$elements = dom.$all('.js-galleryItem'),
+			hash = location.hash,
+			hashTriggered = false,
 			element,
 			tmpImg = document.createElement('img'),
 			itemClickCallback = function(){
 				element = this;
 				dom.removeClass(dom.$('.js-galleryItem.m-active'), 'm-active');
 				dom.addClass(element, 'm-active');
+				dom.addClass($image, 'm-load');
+				dom.addClass($info, 'm-load');
+				dom.addClass($preloader, 'm-visible');
 				tmpImg.onload = function(){
 					$image.setAttribute('src', tmpImg.getAttribute('src'));
+					$image.width = tmpImg.width;
+					$image.height = tmpImg.height;
 					$info.innerHTML = element.getAttribute('data-description');
+					dom.removeClass($image, 'm-load');
+					dom.removeClass($info, 'm-load');
+					dom.removeClass($preloader, 'm-visible');
 					tmpImg.onload = null;
+					tmpImg.removeAttribute('src');
 				};
 				tmpImg.setAttribute('src', element.getAttribute('data-big'));
 			};
 		for (var i = 0; i < $elements.length; i++) {
 			dom.addEvent($elements[i], 'click', itemClickCallback);
+			if ($elements[i].getAttribute('href') === hash){
+				hashTriggered = true;
+				if (i>3){
+					var stack = new FnStack();
+					for(var j = 1; j < (i+1) / 4; j++){
+						stack.addFn(moveHolderDown, 310);
+					}
+					stack.play();
+					$elements[i].click();
+				}
+			}
+		}
+		if (!hashTriggered){
+			$elements[0].click();
 		}
 	}
 });

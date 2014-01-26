@@ -15,7 +15,8 @@ block content
 					.gallery-nav__holder.js-holder
 						each item,i in gallery[page]
 							- var className = (i==0)? 'gallery-nav__item js-galleryItem m-active':'gallery-nav__item js-galleryItem';
-							div(class='#{className}',
+							- var anchor = item.image.replace('.jpg', '');
+							a(href='##{anchor}', class='#{className}',
 									data-big='../assets/img/gallery/#{page}/big/#{item.image}',
 									data-description='#{item[lang]}')
 								img(src='../assets/img/gallery/#{page}/thumb/#{item.image}')
@@ -29,10 +30,12 @@ block content
 			.gallery-name
 				.gallery-name__text #{text[lang][page]}
 			.gallery-image__wrapper
-				.galery-image
-					img.galery-image__img.m-visible.js-image(src='../assets/img/gallery/#{page}/big/#{gallery[page][0].image}')
-					.gallery-image__preload.js-preloader
-					.galery-image__info.js-info !{gallery[page][0][lang]}
+				.gallery-image
+					span.gallery-image__holder
+						img.gallery-image__img.m-visible.js-image(src='../assets/img/gallery/#{page}/big/#{gallery[page][0].image}')
+						.gallery-image__preload.js-preloader
+							img(src='../assets/img/preloader.gif')
+					.gallery-image__info.js-info !{gallery[page][0][lang]}
 	.cats.wrapper
 		.cats__image
 		.signature.m-gallery
