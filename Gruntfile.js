@@ -96,7 +96,7 @@ module.exports = function(grunt) {
 					width: 150,
 					height: 150,
 					overwrite: false,
-					quality: 1
+					quality: 0.9
 				},
 				files: imageList('thumb')
 			},
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
 					height: 600,
 					width: 470,
 					overwrite: false,
-					quality: 1,
+					quality: 0.9,
 					upscale: true
 				},
 				files: imageList('big')
