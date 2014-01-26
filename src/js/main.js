@@ -121,8 +121,8 @@ document.addEventListener('DOMContentLoaded', function(){
 						stack.addFn(moveHolderDown, 310);
 					}
 					stack.play();
-					$elements[i].click();
 				}
+				$elements[i].click();
 			}
 		}
 		if (!hashTriggered){
