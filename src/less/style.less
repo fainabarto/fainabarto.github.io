@@ -174,11 +174,14 @@ h1,h2{
 }
 .cats__image{
 	position: relative;
-	background: url(../img/cats.png) center no-repeat;
 	width: 1313px;
 	height: 554px;
 	top: -210px;
 	left: (800 - 1313)/2px;
+	background: url(../img/cats_840.png) center no-repeat;
+	@media only screen and (min-width: 840px){
+		background: url(../img/cats.png) center no-repeat;
+	}
 }
 .signature{
 	background: url(../img/sign.png);
@@ -197,13 +200,16 @@ h1,h2{
 	 Home page
 	 ========================================================================== */
 body.p-home{
-	background:url(../img/lines_main.png) center top no-repeat, url(../img/houses.png) center top no-repeat, url(../img/bg_main_home.jpg) center top no-repeat #4b0800;
+	background: #4b0800;
 	height: 1450px;
-	@media only screen and (max-width: 1500px){
-
+	@media only screen and (min-width: 1500px){
+		background:url(../img/lines_main.png) center top no-repeat, url(../img/houses.png) center top no-repeat, url(../img/bg_main_home.jpg) center top no-repeat #4b0800;
 	}
-	@media only screen and (max-width: 1000px){
-		
+	@media only screen and (max-width: 1500px) and (min-width: 840px){
+		background:url(../img/lines_main.png) center top no-repeat, url(../img/houses_1500.png) center top no-repeat, url(../img/bg_main_home_1500.jpg) center top no-repeat #4b0800;
+	}
+	@media only screen and (max-width: 840px){
+		background:url(../img/lines_main.png) center top no-repeat, url(../img/bg_main_home_840.jpg) center top no-repeat #4b0800;	
 	}
 }
 .home-nav{
@@ -237,8 +243,18 @@ body.p-home{
 	 Gallery page
 	 ========================================================================== */
 body.p-gallery{
+	background: #4b0800;
 	background:url(../img/lines_main.png) center top no-repeat, url(../img/bg_main_gallery.jpg) center top;
 	height: 1400px;
+	@media only screen and (min-width: 1500px){
+		background:url(../img/lines_main.png) center top no-repeat, url(../img/bg_main_gallery.jpg) center top;
+	}
+	@media only screen and (max-width: 1500px) and (min-width: 840px){
+		background:url(../img/lines_main.png) center top no-repeat, url(../img/bg_main_gallery_1500.jpg) center top;
+	}
+	@media only screen and (max-width: 840px){
+		background:url(../img/lines_main.png) center top no-repeat, url(../img/bg_main_gallery_840.jpg) center top;
+	}
 }
 .gallery-nav{
 	margin: 60px auto 0;
