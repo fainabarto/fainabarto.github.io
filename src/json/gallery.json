@@ -1,6 +1,11 @@
 {
 	"illustration":[
 		{
+			"image": "FairyForest.jpg",
+			"ru": "Сказочный лес",
+			"en": "Fairy forest"
+		},
+		{
 			"image": "TheSnowQueen.jpg",
 			"ru": "Иллюстрация к сказке Г.Х.Андерсена «Снежная&nbsp;королева»",
 			"en": "Illustration for Hans Christian Andersen tale \"The&nbsp;Snow&nbsp;Queen\""
